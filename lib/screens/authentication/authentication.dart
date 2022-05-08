@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/screens/authentication/widgets/auth_animation.dart';
 import 'package:note_taking_app/screens/authentication/widgets/auth_color.dart';
+import 'package:note_taking_app/screens/authentication/widgets/auth_header.dart';
 
 import 'controller/auth_creds.dart';
 
@@ -15,6 +16,7 @@ class Authentication extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [
             AuthAnimation(),
+            AuthHeader(),
             AuthCred(),
           ],
         ),

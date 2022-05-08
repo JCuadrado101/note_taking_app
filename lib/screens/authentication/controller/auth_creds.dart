@@ -15,44 +15,63 @@ class _AuthCredState extends State<AuthCred> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          AuthFields(
-            controller: _emailController,
-            labelHint: 'Email',
-            keyboardType: TextInputType.emailAddress,
-            icon: Icons.email,
-            validator: (value) {
-              if (value == null || value.isEmpty || !value.contains('@')) {
-                return 'Please enter valid email';
-              }
-              return null;
-            },
-          ),
-          AuthFields(
-            controller: _passwordController,
-            labelHint: 'Password',
-            keyboardType: TextInputType.visiblePassword,
-            icon: Icons.lock,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your password';
-              }
-              return null;
-            },
-          ),
-          ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                print('Form is valid');
-              }
-            },
-            child: const Text('Login'),
-          ),
-        ],
-      )
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            AuthFields(
+              controller: _emailController,
+              labelHint: 'Email',
+              keyboardType: TextInputType.emailAddress,
+              icon: Icons.email,
+              validator: (value) {
+                if (value == null || value.isEmpty || !value.contains('@')) {
+                  return 'Please enter valid email';
+                }
+                return null;
+              },
+            ),
+            AuthFields(
+              controller: _passwordController,
+              labelHint: 'Password',
+              keyboardType: TextInputType.visiblePassword,
+              icon: Icons.lock,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your password';
+                }
+                return null;
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Sign Up', style: TextStyle(color: Colors.white)),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Forgot password?', style: TextStyle(color: Colors.white)),
+                  ),
+                ],
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  print('Form is valid');
+                }
+              },
+              child: const Text('Login'),
+            ),
+          ],
+        )
+      ),
     );
   }
 }

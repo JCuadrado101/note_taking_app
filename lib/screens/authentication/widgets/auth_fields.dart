@@ -26,12 +26,14 @@ class _AuthFieldsState extends State<AuthFields> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: TextFormField(
         controller: widget._controller,
-        obscureText: widget.labelHint == 'Password' && showPassword,
+        obscureText: widget.labelHint == 'Password' && !showPassword,
         keyboardType: widget.keyboardType,
         decoration: InputDecoration(
+          labelStyle: const TextStyle(color: Colors.grey),
+          floatingLabelStyle: const TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
           labelText: widget.labelHint,
           border: const OutlineInputBorder(),
           fillColor: Colors.white,
@@ -40,7 +42,7 @@ class _AuthFieldsState extends State<AuthFields> {
           suffixIcon: Visibility(
             visible: widget.labelHint == 'Password',
               child: IconButton(
-                icon: showPassword ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
+                icon: !showPassword ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
                 onPressed: () {
                   setState(() {
                     showPassword = !showPassword;

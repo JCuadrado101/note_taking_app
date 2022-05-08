@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/screens/authentication/authentication.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:note_taking_app/services/firebase.dart';
 
-void main() {
+void main() async{
+  FirebaseService();
   runApp(const ProviderScope(child: MyApp())
   );
 }
