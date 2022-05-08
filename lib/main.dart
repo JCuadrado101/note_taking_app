@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/screens/authentication/authentication.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:note_taking_app/services/firebase.dart';
+import 'package:note_taking_app/services/instances/firebase.dart';
 
 import 'initializer/setup.dart';
 

@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:note_taking_app/services/riverpod/providers.dart';
 
 class FirebaseService {
   static final FirebaseService instance = FirebaseService._internal();
@@ -10,7 +12,7 @@ class FirebaseService {
 
   Future<void> createUserWithEmailAndPassword(String emailAddress, String password) async {
     try {
-      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailAddress,
         password: password,
       );
@@ -25,12 +27,13 @@ class FirebaseService {
     }
   }
 
-  Future<void> signInWithEmailAndPassword(String emailAddress, String password) async {
+  Future<void> signInWithEmailAndPassword(String emailAddress, String password, WidgetRef ref) async {
     try {
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailAddress,
           password: password
       );
+      ref.read(loginProvider.state).state = credential.user?.uid;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
