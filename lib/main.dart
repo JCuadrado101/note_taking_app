@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:note_taking_app/screens/authentication/authentication.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:note_taking_app/services/instances/firebase.dart';
-
+import 'package:note_taking_app/services/routes/routes.dart';
 import 'initializer/setup.dart';
+import 'package:go_router/go_router.dart';
+
 
 void main() async {
   await initializerSetup();
@@ -18,12 +20,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final GoRouter _router = GoRouter(
+      routes: [...mobileRoutes()],
+    );
+    return MaterialApp.router(
+      routeInformationParser: _router.routeInformationParser,
+      routerDelegate: _router.routerDelegate,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Authentication(),
     );
   }
 }
