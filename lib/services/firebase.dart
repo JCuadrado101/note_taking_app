@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseService {
-  static final FirebaseService _instance = FirebaseService._internal();
+  static final FirebaseService instance = FirebaseService._internal();
 
   factory FirebaseService() {
-    return _instance;
+    return instance;
   }
   FirebaseService._internal();
 
@@ -41,5 +41,4 @@ class FirebaseService {
       print(e);
     }
   }
-
 }

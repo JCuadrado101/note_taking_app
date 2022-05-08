@@ -3,7 +3,10 @@ import 'package:note_taking_app/screens/authentication/authentication.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:note_taking_app/services/firebase.dart';
 
-void main() async{
+import 'initializer/setup.dart';
+
+void main() async {
+  await initializerSetup();
   FirebaseService();
   runApp(const ProviderScope(child: MyApp())
   );

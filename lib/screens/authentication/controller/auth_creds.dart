@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_taking_app/services/firebase.dart';
 import '../widgets/auth_fields.dart';
 
 class AuthCred extends StatefulWidget {
@@ -62,12 +63,15 @@ class _AuthCredState extends State<AuthCred> {
               ),
             ),
             ElevatedButton(
+              child: const Text('Login'),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  print('Form is valid');
+                  FirebaseService.instance.signInWithEmailAndPassword(
+                    _emailController.text,
+                    _passwordController.text,
+                  );
                 }
               },
-              child: const Text('Login'),
             ),
           ],
         )
