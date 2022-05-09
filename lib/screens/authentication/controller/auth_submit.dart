@@ -16,22 +16,32 @@ class AuthSubmit extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Consumer(
-      builder: (context, ref, _) {
-        return ElevatedButton(
-          child: const Text('Login'),
-          onPressed: () {
-            if (_formKey.currentState!.validate()) {
-              FirebaseService.instance.signInWithEmailAndPassword(
-                _emailController.text,
-                _passwordController.text,
-                ref,
-                context
-              );
-            }
-          },
-        );
-      }
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Consumer(
+        builder: (context, ref, _) {
+          return ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.white, // background (button) color
+              onPrimary: Colors.black,
+              elevation: 10,
+              shadowColor: Colors.blue,
+              padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 20),
+            ),
+            child: const Text('Login'),
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                FirebaseService.instance.signInWithEmailAndPassword(
+                  _emailController.text,
+                  _passwordController.text,
+                  ref,
+                  context
+                );
+              }
+            },
+          );
+        }
+      ),
     );
   }
 }

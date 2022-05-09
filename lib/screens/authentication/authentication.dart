@@ -13,7 +13,7 @@ class Authentication extends StatelessWidget {
     return Scaffold(
       body: AuthColor(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             AuthAnimation(),
             AuthHeader(),
