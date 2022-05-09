@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void showErrorSnackbar(BuildContext context, String message, Icon icon) {
+void authErrorSnackbar(BuildContext context, String message, Icon icon) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Row(

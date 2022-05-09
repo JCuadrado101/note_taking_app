@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class AuthAnimation extends StatelessWidget {
-  const AuthAnimation({Key? key}) : super(key: key);
+class LoginAnimation extends StatelessWidget {
+  const LoginAnimation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

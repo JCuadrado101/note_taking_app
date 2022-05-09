@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/auth_fields.dart';
-import 'auth_submit.dart';
+import '../../../widgets/auth_fields.dart';
+import '../widgets/login_options.dart';
+import 'login_submit.dart';
 
 class AuthCred extends StatefulWidget {
   const AuthCred({Key? key}) : super(key: key);
@@ -46,23 +47,12 @@ class _AuthCredState extends State<AuthCred> {
                 return null;
               },
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('Sign Up', style: TextStyle(color: Colors.white)),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('Forgot password?', style: TextStyle(color: Colors.white)),
-                  ),
-                ],
-              ),
+            const AuthOptions(),
+            LoginSubmit(
+              formKey: _formKey,
+              emailController: _emailController,
+              passwordController: _passwordController,
             ),
-            AuthSubmit(formKey: _formKey, emailController: _emailController, passwordController: _passwordController),
           ],
         )
       ),

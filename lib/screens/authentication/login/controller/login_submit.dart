@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../services/instances/firebase.dart';
+import '../../../../services/instances/firebase.dart';
 
-class AuthSubmit extends ConsumerWidget {
-  const AuthSubmit({
+class LoginSubmit extends ConsumerWidget {
+  final GlobalKey<FormState> formKey;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+
+  const LoginSubmit({
     Key? key,
-    required GlobalKey<FormState> formKey,
-    required TextEditingController emailController,
-    required TextEditingController passwordController,
-  }) : _formKey = formKey, _emailController = emailController, _passwordController = passwordController, super(key: key);
-
-  final GlobalKey<FormState> _formKey;
-  final TextEditingController _emailController;
-  final TextEditingController _passwordController;
+    required this.formKey,
+    required this.emailController,
+    required this.passwordController,
+  }) :  super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,12 +28,12 @@ class AuthSubmit extends ConsumerWidget {
               shadowColor: Colors.blue,
               padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 20),
             ),
-            child: const Text('Login'),
+            child: Text('Login'),
             onPressed: () {
-              if (_formKey.currentState!.validate()) {
+              if (formKey.currentState!.validate()) {
                 FirebaseService.instance.signInWithEmailAndPassword(
-                  _emailController.text,
-                  _passwordController.text,
+                  emailController.text,
+                  passwordController.text,
                   ref,
                   context
                 );
