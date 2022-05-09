@@ -25,7 +25,8 @@ class AuthSubmit extends ConsumerWidget {
               FirebaseService.instance.signInWithEmailAndPassword(
                 _emailController.text,
                 _passwordController.text,
-                ref
+                ref,
+                context
               );
             }
           },

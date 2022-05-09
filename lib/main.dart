@@ -1,5 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:note_taking_app/screens/authentication/authentication.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:note_taking_app/services/instances/firebase.dart';
 import 'package:note_taking_app/services/routes/routes.dart';
@@ -21,7 +21,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
-      routes: [...mobileRoutes()],
+        debugLogDiagnostics: false,
+        initialLocation: '/',
+        routes: [...mobileRoutes()],
+        refreshListenable: GoRouterRefreshStream(FirebaseAuth.instance.authStateChanges()),
+        redirect: (state) {
+          final loggedIn = FirebaseAuth.instance.currentUser?.uid != null;
+          final authPage = state.subloc == '/';
+          if (!loggedIn && authPage) {
+            return '/login';
+          }
+          if (loggedIn && state.subloc == "/login") {
+            return '/';
+          }
+        }
     );
     return MaterialApp.router(
       routeInformationParser: _router.routeInformationParser,
