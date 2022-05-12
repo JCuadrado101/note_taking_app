@@ -18,7 +18,7 @@ class AuthOptions extends StatelessWidget {
             child: const Text('Sign Up', style: TextStyle(color: Colors.white)),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () => context.push('/forgot-password'),
             child: const Text('Forgot password?', style: TextStyle(color: Colors.white)),
           ),
         ],

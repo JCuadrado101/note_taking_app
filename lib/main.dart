@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:note_taking_app/services/instances/firebase.dart';
+import 'package:note_taking_app/services/instances/google.dart';
 import 'package:note_taking_app/services/routes/routes.dart';
 import 'initializer/setup.dart';
 import 'package:go_router/go_router.dart';
@@ -10,6 +11,7 @@ import 'package:go_router/go_router.dart';
 void main() async {
   await initializerSetup();
   FirebaseService();
+  GoogleAuth();
   runApp(const ProviderScope(child: MyApp())
   );
 }

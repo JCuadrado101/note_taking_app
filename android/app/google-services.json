@@ -29,6 +29,13 @@
             {
               "client_id": "505188938042-a1bdnhvnvuaeht7gkme0g1d17q8ugspe.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "505188938042-qgbbf41smkto3ecuk6d5f731lfl3fd1p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.noteTakingApp"
+              }
             }
           ]
         }
