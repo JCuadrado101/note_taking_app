@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import '../../services/instances/google.dart';
@@ -7,7 +6,6 @@ import 'login/widgets/auth_two_button.dart';
 import 'login/widgets/login_animation.dart';
 import '../widgets/auth_color.dart';
 import '../widgets/auth_header.dart';
-
 
 class Authentication extends StatelessWidget {
   const Authentication({Key? key}) : super(key: key);
